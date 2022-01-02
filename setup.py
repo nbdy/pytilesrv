@@ -3,12 +3,12 @@ from setuptools import setup, find_packages
 
 setup(
     long_description=open("README.md", "r").read(),
-    name="tilesrv",
+    name="pytilesrv",
     version="0.1",
     description="mapnik server",
     author="Pascal Eberlein",
     author_email="pascal@eberlein.io",
-    url="https://github.com/nbdy/tilesrv",
+    url="https://github.com/nbdy/pytilesrv",
     classifiers=[
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Build Tools',
@@ -18,10 +18,12 @@ setup(
     keywords="mapnik render server",
     packages=find_packages(),
     long_description_content_type="text/markdown",
-    install_requires=open("requirements.txt").readlines(),
+    install_requires=[
+        "loguru", "flask", "MapRenderCache"
+    ],
     entry_points={
         'console_scripts': [
-            'tilesrv = tilesrv.__main__:main'
+            'pytilesrv = pytilesrv.__main__:main'
         ]
     }
 )
